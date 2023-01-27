@@ -20,3 +20,4 @@ spec:
   tls:
     secretName: {{ .Values.proxytest.certSecretName }}
 {{- end }}
+{{- end }}

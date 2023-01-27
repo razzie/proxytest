@@ -6,7 +6,7 @@ metadata:
   namespace: '{{ .Release.Namespace }}'
 spec:
   selector:
-    app.kubernetes.io/name: proxytest
+    app: proxytest
   ports:
   - name: http
     port: 80

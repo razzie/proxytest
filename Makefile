@@ -18,7 +18,7 @@ docker-push: docker-build
 
 .PHONY: deploy
 deploy:
-	helm update --install proxytest helm-chart/proxytest/
+	helm upgrade --install proxytest helm-chart/proxytest/
 
 .PHONY: undeploy
 undeploy:
