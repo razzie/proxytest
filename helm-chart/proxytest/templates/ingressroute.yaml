@@ -1,0 +1,22 @@
+{{- if .Values.proxytest.enableTraefikIngressRoute }}
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: proxytest-route
+spec:
+  entryPoints:
+{{- if .Values.proxytest.certSecretName }}
+  - websecure
+{{- else }}
+  - web
+{{- end }}
+  routes:
+  - match: Host(`{{ .Values.proxytest.route }}`)
+    kind: Rule
+    services:
+    - name: proxytest
+      port: 80
+{{- if .Values.proxytest.certSecretName }}
+  tls:
+    secretName: {{ .Values.proxytest.certSecretName }}
+{{- end }}

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: proxytest
+  namespace: '{{ .Release.Namespace }}'
+spec:
+  containers:
+  - name: proxytest
+    image: {{ .Values.proxytest.image | default "ghcr.io/razzie/proxytest:latest" }}
+    ports:
+    - containerPort: 8080
+      name: http

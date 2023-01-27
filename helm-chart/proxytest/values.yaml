@@ -1,0 +1,6 @@
+proxytest:
+  image: ghcr.io/razzie/proxytest:latest
+  route: proxytest.gorzsony.com
+  certSecretName: mirror-gorzsony-com-cert
+  enableService: true
+  enableTraefikIngressRoute: true
